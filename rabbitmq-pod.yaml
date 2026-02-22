@@ -1,0 +1,126 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2026-02-22T20:37:19Z"
+  generation: 1
+  labels:
+    run: rabbitmq
+  name: rabbitmq
+  namespace: default
+  resourceVersion: "1771792645347247010"
+  uid: 10a6268f-a366-41cc-a98e-0aaa0ab746d7
+spec:
+  containers:
+  - image: rabbitmq:3.13-management
+    imagePullPolicy: IfNotPresent
+    name: rabbitmq
+    ports:
+    - containerPort: 15672
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-vkn55
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: gke-tech-stack-cluster-default-pool-20036811-wst0
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-vkn55
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2026-02-22T20:37:25Z"
+    observedGeneration: 1
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2026-02-22T20:37:19Z"
+    observedGeneration: 1
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2026-02-22T20:37:25Z"
+    observedGeneration: 1
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2026-02-22T20:37:25Z"
+    observedGeneration: 1
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2026-02-22T20:37:19Z"
+    observedGeneration: 1
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://d56f43c251310a226f890e0d9106417a425a5e36ebbc93305a2acda52d5d3e58
+    image: docker.io/library/rabbitmq:3.13-management
+    imageID: docker.io/library/rabbitmq@sha256:e582c0bc7766f3342496d8485efb5a1df782b5ce3886ad017e2eaae442311f69
+    lastState: {}
+    name: rabbitmq
+    ready: true
+    resources: {}
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2026-02-22T20:37:24Z"
+    user:
+      linux:
+        gid: 0
+        supplementalGroups:
+        - 0
+        uid: 0
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-vkn55
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 10.156.0.36
+  hostIPs:
+  - ip: 10.156.0.36
+  observedGeneration: 1
+  phase: Running
+  podIP: 10.64.0.17
+  podIPs:
+  - ip: 10.64.0.17
+  qosClass: BestEffort
+  startTime: "2026-02-22T20:37:19Z"

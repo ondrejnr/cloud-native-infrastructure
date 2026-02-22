@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "3"
+  creationTimestamp: "2026-02-22T20:35:04Z"
+  generation: 3
+  labels:
+    app: varnish
+  name: varnish
+  namespace: default
+  resourceVersion: "1771795195386351001"
+  uid: c5b312bb-037f-4046-9990-d26d5b0eb4b7
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: varnish
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2026-02-22T21:19:53Z"
+      labels:
+        app: varnish
+    spec:
+      containers:
+      - image: varnish:latest
+        imagePullPolicy: Always
+        name: varnish
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/varnish/default.vcl
+          name: vcl-config
+          subPath: default.vcl
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: varnish-config
+        name: vcl-config
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2026-02-22T21:19:55Z"
+    lastUpdateTime: "2026-02-22T21:19:55Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2026-02-22T20:35:04Z"
+    lastUpdateTime: "2026-02-22T21:19:55Z"
+    message: ReplicaSet "varnish-84bbf64f94" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 3
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

@@ -1,0 +1,90 @@
+apiVersion: kafka.strimzi.io/v1
+kind: Kafka
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"kafka.strimzi.io/v1","kind":"Kafka","metadata":{"annotations":{},"name":"my-cluster","namespace":"default"},"spec":{"entityOperator":{"topicOperator":{},"userOperator":{}},"kafka":{"config":{"default.replication.factor":3,"min.insync.replicas":2,"offsets.topic.replication.factor":3,"transaction.state.log.min.isr":2,"transaction.state.log.replication.factor":3},"listeners":[{"name":"plain","port":9092,"tls":false,"type":"internal"},{"name":"tls","port":9093,"tls":true,"type":"internal"}],"metadataVersion":"4.1-IV1","version":"4.1.1"}}}
+  creationTimestamp: "2026-02-22T20:22:45Z"
+  generation: 1
+  name: my-cluster
+  namespace: default
+  resourceVersion: "1771791853425791008"
+  uid: 11fd3d93-28b3-45fd-a1dd-80008b67975b
+spec:
+  entityOperator:
+    topicOperator: {}
+    userOperator: {}
+  kafka:
+    config:
+      default.replication.factor: 3
+      min.insync.replicas: 2
+      offsets.topic.replication.factor: 3
+      transaction.state.log.min.isr: 2
+      transaction.state.log.replication.factor: 3
+    listeners:
+    - name: plain
+      port: 9092
+      tls: false
+      type: internal
+    - name: tls
+      port: 9093
+      tls: true
+      type: internal
+    metadataVersion: 4.1-IV1
+    version: 4.1.1
+status:
+  clusterId: yJ_km0pnSTKpktqiUQ6nUw
+  conditions:
+  - lastTransitionTime: "2026-02-22T20:24:13.382008259Z"
+    status: "True"
+    type: Ready
+  kafkaMetadataVersion: 4.1-IV1
+  kafkaNodePools:
+  - name: broker
+  - name: controller
+  kafkaVersion: 4.1.1
+  listeners:
+  - addresses:
+    - host: my-cluster-kafka-bootstrap.default.svc
+      port: 9092
+    bootstrapServers: my-cluster-kafka-bootstrap.default.svc:9092
+    name: plain
+  - addresses:
+    - host: my-cluster-kafka-bootstrap.default.svc
+      port: 9093
+    bootstrapServers: my-cluster-kafka-bootstrap.default.svc:9093
+    certificates:
+    - |
+      -----BEGIN CERTIFICATE-----
+      MIIFLTCCAxWgAwIBAgIUKXY3jKy2M7hVsft6r9CUPG4evMMwDQYJKoZIhvcNAQEN
+      BQAwLTETMBEGA1UECgwKaW8uc3RyaW16aTEWMBQGA1UEAwwNY2x1c3Rlci1jYSB2
+      MDAeFw0yNjAyMjIyMDIyNDZaFw0yNzAyMjIyMDIyNDZaMC0xEzARBgNVBAoMCmlv
+      LnN0cmltemkxFjAUBgNVBAMMDWNsdXN0ZXItY2EgdjAwggIiMA0GCSqGSIb3DQEB
+      AQUAA4ICDwAwggIKAoICAQCfxY7WepP8rM7bnEfmYaxWfkG+LAv6/NOCJLu9qL3q
+      Bch5EhoEzzQqi3eace9i0393b86SWh1IDTKzC8d64jdgUKw7BS/iOQpaTYb9wqGQ
+      gJ+UEsLCtiRYiVPOTwMPV5OSHElUHc3aq04cFnIVg9PtF5W9e4JrTXPDEkMMzJmt
+      BdUdOQuKvTZxEVFpLbDXaegNv3/lOxgy0En02PCcrTvE76FfY5d+1ROIQoVRY6ru
+      OWaz9Pajgpkx9zAcdzRPY9r/FMcOGjH2Wpa8OtrGOTNDm4rUhL53irao0CQxKOUn
+      Qd8VIoFjIeIcT2H78uwfztPrW+pKfv0j6oSoW+v/MutjA8AiIDy0sSZEs2jMhrVj
+      gzTnXeS0x0W9Iu+PrPCtPZO+Hz9ueMKGY2pJkxal53rnT75hnMSY4x0FC93lfEpo
+      19TiZDhz2R+pQfEjizVSNTbaGTGanFoWyPBS6kWF6e5E8dOgicYpezrQcFOcxoHd
+      g0L4Q6OkgoRdkSbRt2Prd/Nx6plhHw2txzbZ5hIxY6BHHLLbV5koHSyZhRvV8tPo
+      PuKbLhhooEsns5uW0PjB0gXtTy2V0KQENR0pKhpGNpLeiEgzJ1rII4Gtf9Cw1KZ3
+      N0mFQ7m7qDOIQ/wCbRPBgqYwkSZ18TkMnsWu+tw0NlMb4uI9FeTDe5b/lRWP3NZS
+      nQIDAQABo0UwQzAdBgNVHQ4EFgQUSzG7V0Gmv/U36Bg7PLTxXXVyPjcwEgYDVR0T
+      AQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAQYwDQYJKoZIhvcNAQENBQADggIB
+      AENvSS/6otxcTOtcAp4G82vCVqgpPhzJP/Pb2dMYqonaLoZVc4yHfSWUayGoEgxp
+      qCFKioAwRG7sbn8nlbBM6A9pNuXHcYJU+mV4nzLBxwZ/rc2nXA0TymqxiqoEsfey
+      k5GNGillSrPZQWHIplOgqutAzdOROFJqmhnSuxA6ZhVA5gtN+U15gRkIqyThKRpX
+      3SYntDR/owt+Qofmn+F0Ouwd5QHxw4ifL/QKa/jlN3b7s9vh1jEX0lfilE20bXUe
+      0l6cPmtHWPIew9wWzoTXv0e37V5MX0wyEuPK/jwNUrCPsL93a/40pqdI59lQyl3U
+      v4Lrrnay3/9/55qSbh+DsmcWI1hSHh5V6MjCGfjLSo/VEk8YC/3HydAaN3Xzhn4J
+      Yvr5pUWd9ivydEIjPJXe8B3nSAXWftZNquZo+wzl5jeny+gJSAjX+lpAsIfRKsxp
+      yFfCf2lIPWDoCMMhUBG3cQ7D1glkyFgKAhUNq90VFSJu3Du/nARv99app6O8KS3I
+      A+8I5AminHgCzzUO1c2wnoZe1Ck0xIkcFF/TWTJZ2jZG6rwn33yWtIywfG7XL4Tv
+      4eEooeaYyzBzngbXvuBmI9lUOyRIYi+Y8jAJ/DDL9UUG+QqKguimoGjNgTMlSqQY
+      l2C2T0XnzTFyzXpfe6D8h7MlnNRVqraCZr4gAKajjp0v
+      -----END CERTIFICATE-----
+    name: tls
+  observedGeneration: 1
+  operatorLastSuccessfulVersion: 0.50.1
