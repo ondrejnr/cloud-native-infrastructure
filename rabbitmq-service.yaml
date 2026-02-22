@@ -3,33 +3,33 @@ kind: Service
 metadata:
   annotations:
     cloud.google.com/neg: '{"ingress":true}'
-  creationTimestamp: "2026-02-22T20:37:19Z"
+  creationTimestamp: "2026-02-22T23:41:21Z"
   finalizers:
   - gke.networking.io/l4-netlb-v1
   - service.kubernetes.io/load-balancer-cleanup
   labels:
-    run: rabbitmq
+    app: rabbitmq
   name: rabbitmq
   namespace: default
-  resourceVersion: "1771794094173695013"
-  uid: f5ff7027-d3b4-406d-9ebb-b65a0001142c
+  resourceVersion: "1771803711904287013"
+  uid: e7ec24fe-f7b8-49d9-ad6f-525d752a05d2
 spec:
   allocateLoadBalancerNodePorts: true
-  clusterIP: 34.118.232.248
+  clusterIP: 34.118.229.87
   clusterIPs:
-  - 34.118.232.248
+  - 34.118.229.87
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - nodePort: 30380
+  - nodePort: 31879
     port: 80
     protocol: TCP
     targetPort: 15672
   selector:
-    run: rabbitmq
+    app: rabbitmq
   sessionAffinity: None
   type: LoadBalancer
 status:
